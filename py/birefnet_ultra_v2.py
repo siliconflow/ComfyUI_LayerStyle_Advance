@@ -11,11 +11,10 @@ from comfy.utils import ProgressBar
 sys.path.append(os.path.join(os.path.dirname(__file__), 'BiRefNet_v2'))
 
 
-def get_models():
-    model_path = os.path.join(folder_paths.models_dir, 'BiRefNet', 'pth')
-    model_ext = [".pth"]
-    model_dict = get_files(model_path, model_ext)
-    return model_dict
+def get_models(model_name='BiRefNet-general-epoch_244.pth'):
+    model_dir = os.path.join(folder_paths.models_dir, 'BiRefNet', 'pth')
+    model_path = os.path.join(model_dir, model_name)
+    return model_path
 
 class LS_LoadBiRefNetModel:
 
@@ -26,12 +25,7 @@ class LS_LoadBiRefNetModel:
 
     @classmethod
     def INPUT_TYPES(s):
-        tmp_list = list(get_models().keys())
-        model_list = []
-        if 'BiRefNet-general-epoch_244.pth' in tmp_list:
-            model_list.append('BiRefNet-general-epoch_244.pth')
-            tmp_list.remove('BiRefNet-general-epoch_244.pth')
-        model_list.extend(tmp_list)
+        model_list = ['BiRefNet-general-epoch_244.pth']
 
         return {
             "required": {
@@ -47,9 +41,9 @@ class LS_LoadBiRefNetModel:
     def load_birefnet_model(self, model):
         from .BiRefNet_v2.models.birefnet import BiRefNet
         from .BiRefNet_v2.utils import check_state_dict
-        model_dict = get_models()
+        model_path = get_models(model)
         self.birefnet = BiRefNet(bb_pretrained=False)
-        self.state_dict = torch.load(model_dict[model], map_location='cpu', weights_only=True)
+        self.state_dict = torch.load(model_path, map_location='cpu', weights_only=True)
         self.state_dict = check_state_dict(self.state_dict)
         self.birefnet.load_state_dict(self.state_dict)
         return (self.birefnet,)
