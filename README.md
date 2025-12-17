@@ -144,6 +144,8 @@ Please try downgrading the ```protobuf``` dependency package to 3.20.3, or set e
 
 **If the dependency package error after updating,  please double clicking ```repair_dependency.bat``` (for Official ComfyUI Protable) or  ```repair_dependency_aki.bat``` (for ComfyUI-aki-v1.x) in the plugin folder to reinstall the dependency packages.    
 
+* Fix the issue where Florence2 run with higher versions of Transformers, this solution comes from [kijai](https://github.com/kijai/ComfyUI-Florence2), Thanks to @flybirdxx for feedback.         
+  After updating plugin, find ```modeling_florence2.py``` and ```configuration_florence2.py``` from the ```florence2_models``` folder, copy and overwrite them to the model folder in ```ComfyUI/models/florence2```.
 * Commit [JimengImageToImageAPI](#JimengImageToImageAPI) node, edit images using the Instant Dreaming Image 3.0 API. Create an account on [Volcano Engine](#https://console.volcengine.com/iam/keymanage) and apply for API AccessKeyID and SecretAccessKey. Fill them into the ```api_key.ini``` directory in the plugin directory.
 * Commit [SAM2UltraV2](SAM2UltraV2) and [LoadSAM2Model](LoadSAM2Model) nodes, Change the SAM model to an external input to save resources when using multiple nodes.
 * Commit [JoyCaptionBetaOne](JoyCaptionBetaOne), [LoadJoyCaptionBeta1Model](LoadJoyCaptionBeta1Model), [JoyCaptionBeta1ExtraOptions](JoyCaptionBeta1ExtraOptions) nodes, Generate prompt words using the JoyCaption Beta One model.    

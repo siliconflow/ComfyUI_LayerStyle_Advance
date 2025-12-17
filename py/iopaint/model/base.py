@@ -76,6 +76,13 @@ class InpaintModel:
 
         if config.sd_keep_unmasked_area:
             mask = mask[:, :, np.newaxis]
+            # Ensure mask shape is (H, W, 1)
+            if mask.ndim == 4 and mask.shape[-1] == 1:
+                mask = mask.squeeze(-1)  # remove last dim
+            if mask.ndim == 4:
+                mask = mask.squeeze()
+            if mask.ndim == 3 and mask.shape[-1] != 1:
+                mask = mask[:, :, :1]
             result = result * (mask / 255) + image[:, :, ::-1] * (1 - (mask / 255))
         return result
 

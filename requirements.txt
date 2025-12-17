@@ -38,3 +38,5 @@ pyzbar
 psd-tools
 zhipuai
 openai
+typer-config
+fastapi

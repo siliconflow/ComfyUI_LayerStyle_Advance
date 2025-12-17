@@ -219,6 +219,7 @@ def run_example(model, processor, task_prompt, image, max_new_tokens, num_beams,
         early_stopping=False,
         do_sample=do_sample,
         num_beams=num_beams,
+        use_cache=False,
     )
     generated_text = processor.batch_decode(generated_ids, skip_special_tokens=False)[0]
     parsed_answer = processor.post_process_generation(

@@ -121,6 +121,8 @@ If this call came from a _pb2.py file, your generated code is out of date and mu
 ## 更新说明
 **如果本插件更新后出现依赖包错误，请双击运行插件目录下的```install_requirements.bat```(官方便携包)，或 ```install_requirements_aki.bat```(秋叶整合包) 重新安装依赖包。
 
+* 修复 Florence2 无法在高版本Transformers运行的问题，解决方法来自[kijai](https://github.com/kijai/ComfyUI-Florence2)。感谢 @flybirdxx 的反馈。    
+  更新本插件后，将 florence2_models 文件夹下的 ```modeling_florence2.py``` 和 ```configuration_florence2.py``` 这两个文件复制到 ```ComfyUI/models/florence2``` 里面的模型文件夹下，覆盖同名文件。
 * 添加 [JimengImageToImageAPI](#JimengImageToImageAPI) 节点，使用即梦图生图3.0API对图片进行编辑。在[火山引擎](#https://console.volcengine.com/iam/keymanage) 创建账号，并申请API AccessKeyID 和 SecretAccessKey，将其填入插件目录下的```api_key.ini```。
 * 添加 [SAM2UltraV2](SAM2UltraV2) 和 [LoadSAM2Model](LoadSAM2Model) 节点，将SAM模型改为外部输入，在使用多个节点时节省资源。
 * 添加 [JoyCaptionBetaOne](JoyCaptionBetaOne), [LoadJoyCaptionBeta1Model](LoadJoyCaptionBeta1Model), [JoyCaptionBeta1ExtraOptions](JoyCaptionBeta1ExtraOptions) 节点，使用JoyCaption-Beta-One模型生成提示词。

@@ -1692,6 +1692,16 @@ class FcF(InpaintModel):
             )
 
             original_pixel_indices = crop_mask < 127
+
+            # --- FIX: Ensure boolean mask matches image shape ---
+            if original_pixel_indices.ndim == 3 and original_pixel_indices.shape[-1] == 1:
+                # Convert (H, W, 1) -> (H, W)
+                original_pixel_indices = original_pixel_indices.squeeze(-1)
+
+            if original_pixel_indices.ndim == 2:
+                # Convert (H, W) -> (H, W, 1) for channel broadcast
+                original_pixel_indices = np.repeat(original_pixel_indices[:, :, None], 3, axis=2)
+
             inpaint_result[original_pixel_indices] = crop_image[:, :, ::-1][
                 original_pixel_indices
             ]

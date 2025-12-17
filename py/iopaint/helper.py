@@ -1,5 +1,5 @@
 import base64
-import imghdr
+
 import io
 import os
 import sys
@@ -16,6 +16,10 @@ from torch.hub import download_url_to_file, get_dir
 import hashlib
 from .const import DEFAULT_MODEL_DIR
 
+try :
+    import imghdr
+except ImportError:
+    from .imghdr import *
 
 def md5sum(filename):
     md5 = hashlib.md5()
