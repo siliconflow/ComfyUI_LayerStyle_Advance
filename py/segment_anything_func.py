@@ -25,36 +25,36 @@ logger = logging.getLogger('comfyui_segment_anything')
 
 sam_model_dir_name = "sams"
 sam_model_list = {
-    "sam_vit_h (2.56GB)": {
+    "sam_vit_h_4b8939.pth": {
         "model_url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth"
     },
-    "sam_vit_l (1.25GB)": {
+    "sam_vit_l_0b3195.pth": {
         "model_url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_l_0b3195.pth"
     },
-    "sam_vit_b (375MB)": {
+    "sam_vit_b_01ec64.pth": {
         "model_url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth"
     },
-    "sam_hq_vit_h (2.57GB)": {
+    "sam_hq_vit_h.pth": {
         "model_url": "https://huggingface.co/lkeab/hq-sam/resolve/main/sam_hq_vit_h.pth"
     },
-    "sam_hq_vit_l (1.25GB)": {
+    "sam_hq_vit_l.pth": {
         "model_url": "https://huggingface.co/lkeab/hq-sam/resolve/main/sam_hq_vit_l.pth"
     },
-    "sam_hq_vit_b (379MB)": {
+    "sam_hq_vit_b.pth": {
         "model_url": "https://huggingface.co/lkeab/hq-sam/resolve/main/sam_hq_vit_b.pth"
     },
-    "mobile_sam(39MB)": {
+    "mobile_sam.pt": {
         "model_url": "https://github.com/ChaoningZhang/MobileSAM/blob/master/weights/mobile_sam.pt"
     }
 }
 
 groundingdino_model_dir_name = "grounding-dino"
 groundingdino_model_list = {
-    "GroundingDINO_SwinT_OGC (694MB)": {
+    "groundingdino_swint_ogc.pth": {
         "config_url": "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_SwinT_OGC.cfg.py",
         "model_url": "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swint_ogc.pth",
     },
-    "GroundingDINO_SwinB (938MB)": {
+    "groundingdino_swinb_cogcoor.pth": {
         "config_url": "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_SwinB.cfg.py",
         "model_url": "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swinb_cogcoor.pth"
     },
