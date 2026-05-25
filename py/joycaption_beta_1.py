@@ -90,7 +90,7 @@ QUANTIZATION_CONFIGS = {
 
 class JoyCaptionPredictor:
     def __init__(self, model: str, quantization_mode: str, device:str):
-        checkpoint_path = download_hg_model(model, "LLavacheckpoints")
+        checkpoint_path = download_hg_model(model)
         self.device = device
         self.processor = AutoProcessor.from_pretrained(checkpoint_path)
 
@@ -435,4 +435,4 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "LayerUtility: JoyCaptionBeta1": "LayerUtility: JoyCaption Beta One (Advance)",
     "LayerUtility: LoadJoyCaptionBeta1Model": "LayerUtility: Load JoyCaption Beta One Model (Advance)",
     "LayerUtility: JoyCaptionBeta1ExtraOptions": "LayerUtility: JoyCaption Beta One Extra Options(Advance)"
-} 
+}
