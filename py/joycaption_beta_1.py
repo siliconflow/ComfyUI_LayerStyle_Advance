@@ -90,7 +90,7 @@ QUANTIZATION_CONFIGS = {
 
 class JoyCaptionPredictor:
     def __init__(self, model: str, quantization_mode: str, device:str):
-        checkpoint_path = download_hg_model(model)
+        checkpoint_path = download_hg_model(model, "fancyfeast")
         self.device = device
         self.processor = AutoProcessor.from_pretrained(checkpoint_path)
 
